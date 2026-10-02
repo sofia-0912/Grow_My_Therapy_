@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid #2E5747;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: #2E5747;
+  color: #FCFAF6;
+}
+
+[id] {
+  scroll-margin-top: 96px;
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-eyebrow font-bold uppercase text-accent;
+  }
+
+  .section-pad {
+    @apply px-6 py-20 md:px-10 lg:py-28;
+  }
+
+  .bleed-pad {
+    --edge-gutter: calc(max(2vw, (1000px - 1800px)/2) + 2.5rem);
+    padding-left: var(--edge-gutter);
+    padding-right: var(--edge-gutter);
+  }
+}
+
+@media (min-width: 768px) {
+  .bleed-pad {
+    --edge-gutter: calc(max(2vw, (100vw - 1800px) / 2) + 2.5rem);
+  }
+}
